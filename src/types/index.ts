@@ -35,6 +35,7 @@ export interface PlayingSound {
 export interface Tab {
   id: number;
   name: string;
+  path?: string;
   sounds: Sound[];
 }
 
