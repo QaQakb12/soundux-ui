@@ -62,6 +62,8 @@ declare global {
     stopYoutubeDLDownload: () => Promise<void>;
     updateCheck: () => Promise<UpdateData | null>;
     openFolder: (tabId: number) => Promise<void>;
+    getCallFlowLayouts: () => Promise<string>;
+    saveCallFlowLayouts: (layoutsJson: string) => Promise<boolean>;
   }
 }
 
