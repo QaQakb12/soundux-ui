@@ -1,9 +1,6 @@
 name: cd
 
 on:
-  push:
-    branches: [master, call-flow-dashboard-source]
-    paths-ignore: ["**/README.md"]
   workflow_dispatch:
 
 jobs:
