@@ -1,0 +1,32 @@
+name: Build Call Flow frontend
+
+on:
+  push:
+    branches: [call-flow-dashboard-source]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 14
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint
+        run: yarn lint
+      - name: Build
+        run: yarn build
+      - name: Publish dist to build branch
+        uses: s0/git-publish-subdir-action@v2.5.0
+        env:
+          REPO: self
+          BRANCH: build
+          FOLDER: dist
+          MESSAGE: "Build Call Flow frontend"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
