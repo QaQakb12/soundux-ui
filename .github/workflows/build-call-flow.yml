@@ -1,8 +1,6 @@
 name: Build Call Flow frontend
 
 on:
-  push:
-    branches: [call-flow-dashboard-source]
   workflow_dispatch:
 
 jobs:
